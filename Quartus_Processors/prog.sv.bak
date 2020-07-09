@@ -1,0 +1,31 @@
+//-----------------------------------------------------
+// File Name : prog.sv
+// Function : Program memory Psize x Isize - reads from file prog.hex
+// Author: tjk, 
+// Last rev. 24 Oct 2012
+//-----------------------------------------------------
+module prog #(parameter Psize = 6, Isize = 24) // psize - address width, Isize - instruction width
+(input logic [Psize-1:0] address,
+output logic [Isize:0] I); // I - instruction code
+
+// program memory declaration, note: 1<<n is same as 2^n
+logic [Isize:0] progMem[(1<<Psize)-1:0];
+//integer fp_w;
+//logic [23:0] a;
+//logic [8:0] b;
+// get memory contents from file
+initial
+begin
+//b=12;
+//a={6'b001010,5'b00001,5'b00000,b};
+  //$display("before");
+  $readmemh("data.txt", progMem);
+  //fp_w= $fopen("data.txt","a");
+  //r = $fseek(fp_w,0,2);
+  //$fwrite(fp_w,"%h\n",a);
+  //$display("after");
+end
+// program memory read 
+  assign I = progMem[address];
+  
+endmodule // end of module prog

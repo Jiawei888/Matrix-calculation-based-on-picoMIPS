@@ -1,0 +1,736 @@
+Analysis & Synthesis report for CPU
+Thu Mar 05 15:17:56 2020
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |cpu|sequencer:abc|flag1
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |cpu
+ 15. Parameter Settings for User Entity Instance: counter:c
+ 16. Parameter Settings for User Entity Instance: pc:progCounter
+ 17. Parameter Settings for User Entity Instance: prog:progMemory
+ 18. Parameter Settings for User Entity Instance: regs:gpr
+ 19. Parameter Settings for User Entity Instance: sequencer:abc
+ 20. Parameter Settings for User Entity Instance: alu:iu
+ 21. Port Connectivity Checks: "prog:progMemory"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Mar 05 15:17:56 2020           ;
+; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
+; Revision Name                   ; CPU                                             ;
+; Top-level Entity Name           ; cpu                                             ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 122                                             ;
+; Total pins                      ; 19                                              ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 0                                               ;
+; Total DSP Blocks                ; 1                                               ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; cpu                ; CPU                ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                ; Off                ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Synthesis Seed                                                                  ; 1                  ; 1                  ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 6           ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-6         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                               ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------+---------+
+; sequencer.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv ;         ;
+; regs.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/luojiawei/Desktop/Quartus_Processors/regs.sv      ;         ;
+; prog.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/luojiawei/Desktop/Quartus_Processors/prog.sv      ;         ;
+; pc.sv                            ; yes             ; User SystemVerilog HDL File  ; C:/Users/luojiawei/Desktop/Quartus_Processors/pc.sv        ;         ;
+; opcodes.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/luojiawei/Desktop/Quartus_Processors/opcodes.sv   ;         ;
+; decoder.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/luojiawei/Desktop/Quartus_Processors/decoder.sv   ;         ;
+; data.txt                         ; yes             ; User File                    ; C:/Users/luojiawei/Desktop/Quartus_Processors/data.txt     ;         ;
+; cpu.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/luojiawei/Desktop/Quartus_Processors/cpu.sv       ;         ;
+; alucodes.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/luojiawei/Desktop/Quartus_Processors/alucodes.sv  ;         ;
+; alu.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/luojiawei/Desktop/Quartus_Processors/alu.sv       ;         ;
+; counter.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/luojiawei/Desktop/Quartus_Processors/counter.sv   ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                       ;
++---------------------------------------------+---------------------+
+; Resource                                    ; Usage               ;
++---------------------------------------------+---------------------+
+; Estimate of Logic utilization (ALMs needed) ; 153                 ;
+;                                             ;                     ;
+; Combinational ALUT usage for logic          ; 199                 ;
+;     -- 7 input functions                    ; 1                   ;
+;     -- 6 input functions                    ; 68                  ;
+;     -- 5 input functions                    ; 58                  ;
+;     -- 4 input functions                    ; 20                  ;
+;     -- <=3 input functions                  ; 52                  ;
+;                                             ;                     ;
+; Dedicated logic registers                   ; 122                 ;
+;                                             ;                     ;
+; I/O pins                                    ; 19                  ;
+;                                             ;                     ;
+; Total DSP Blocks                            ; 1                   ;
+;                                             ;                     ;
+; Maximum fan-out node                        ; counter:c|count[23] ;
+; Maximum fan-out                             ; 99                  ;
+; Total fan-out                               ; 1377                ;
+; Average fan-out                             ; 3.83                ;
++---------------------------------------------+---------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                      ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------+-------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name  ; Entity Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------+-------------+--------------+
+; |cpu                       ; 199 (49)          ; 122 (0)      ; 0                 ; 1          ; 19   ; 0            ; |cpu                 ; cpu         ; work         ;
+;    |alu:iu|                ; 16 (16)           ; 0 (0)        ; 0                 ; 1          ; 0    ; 0            ; |cpu|alu:iu          ; alu         ; work         ;
+;    |counter:c|             ; 24 (24)           ; 24 (24)      ; 0                 ; 0          ; 0    ; 0            ; |cpu|counter:c       ; counter     ; work         ;
+;    |decoder:D|             ; 1 (1)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |cpu|decoder:D       ; decoder     ; work         ;
+;    |pc:progCounter|        ; 19 (19)           ; 6 (6)        ; 0                 ; 0          ; 0    ; 0            ; |cpu|pc:progCounter  ; pc          ; work         ;
+;    |prog:progMemory|       ; 13 (13)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |cpu|prog:progMemory ; prog        ; work         ;
+;    |regs:gpr|              ; 59 (59)           ; 88 (88)      ; 0                 ; 0          ; 0    ; 0            ; |cpu|regs:gpr        ; regs        ; work         ;
+;    |sequencer:abc|         ; 18 (18)           ; 4 (4)        ; 0                 ; 0          ; 0    ; 0            ; |cpu|sequencer:abc   ; sequencer   ; work         ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary ;
++-------------------------------+--------------+
+; Statistic                     ; Number Used  ;
++-------------------------------+--------------+
+; Independent 9x9               ; 1            ;
+; Total number of DSP blocks    ; 1            ;
+;                               ;              ;
+; Fixed Point Signed Multiplier ; 1            ;
++-------------------------------+--------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------+
+; State Machine - |cpu|sequencer:abc|flag1 ;
++-----------+------------------------------+
+; Name      ; flag1.001                    ;
++-----------+------------------------------+
+; flag1.000 ; 0                            ;
+; flag1.001 ; 1                            ;
++-----------+------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                 ;
++----------------------------------------------------+-----------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal   ; Free of Timing Hazards ;
++----------------------------------------------------+-----------------------+------------------------+
+; sequencer:abc|PCout_out[3][0]                      ; sequencer:abc|WideOr0 ; yes                    ;
+; sequencer:abc|PCout_out[2][0]                      ; sequencer:abc|WideOr1 ; yes                    ;
+; sequencer:abc|PCout_out[1][0]                      ; sequencer:abc|WideOr2 ; yes                    ;
+; sequencer:abc|PCout_out[0][0]                      ; sequencer:abc|WideOr3 ; yes                    ;
+; sequencer:abc|PCout_out[4][4]                      ; sequencer:abc|WideOr0 ; yes                    ;
+; sequencer:abc|PCout_out[4][3]                      ; sequencer:abc|WideOr0 ; yes                    ;
+; sequencer:abc|PCout_out[3][3]                      ; sequencer:abc|WideOr0 ; yes                    ;
+; sequencer:abc|PCout_out[3][2]                      ; sequencer:abc|WideOr0 ; yes                    ;
+; sequencer:abc|PCout_out[3][1]                      ; sequencer:abc|WideOr0 ; yes                    ;
+; Number of user-specified and inferred latches = 9  ;                       ;                        ;
++----------------------------------------------------+-----------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                     ;
++------------------------------------------+---------------------------------------------+
+; Register name                            ; Reason for Removal                          ;
++------------------------------------------+---------------------------------------------+
+; sequencer:abc|present_state[3..9,11..31] ; Merged with sequencer:abc|present_state[10] ;
+; sequencer:abc|present_state[10]          ; Stuck at GND due to stuck port data_in      ;
+; regs:gpr|gpr[31][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[30][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[29][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[28][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[27][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[26][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[25][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[24][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[23][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[22][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[21][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[20][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[19][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[18][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[17][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[16][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[31][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[30][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[29][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[28][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[27][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[26][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[25][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[24][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[23][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[22][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[21][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[20][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[19][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[18][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[17][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[16][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[31][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[30][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[29][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[28][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[27][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[26][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[25][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[24][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[23][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[22][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[21][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[20][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[19][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[18][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[17][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[16][2]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[31][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[30][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[29][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[28][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[27][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[26][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[25][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[24][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[23][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[22][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[21][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[20][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[19][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[18][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[17][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[16][3]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[31][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[30][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[29][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[28][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[27][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[26][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[25][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[24][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[23][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[22][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[21][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[20][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[19][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[18][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[17][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[16][4]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[31][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[30][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[29][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[28][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[27][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[26][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[25][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[24][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[23][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[22][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[21][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[20][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[19][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[18][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[17][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[16][5]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[31][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[30][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[29][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[28][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[27][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[26][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[25][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[24][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[23][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[22][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[21][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[20][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[19][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[18][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[17][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[16][6]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[31][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[30][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[29][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[28][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[27][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[26][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[25][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[24][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[23][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[22][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[21][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[20][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[19][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[18][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[17][7]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[16][7]                      ; Lost fanout                                 ;
+; sequencer:abc|flag1~5                    ; Lost fanout                                 ;
+; sequencer:abc|flag1~6                    ; Lost fanout                                 ;
+; regs:gpr|gpr[12][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[13][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[14][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[15][0]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[12][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[13][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[14][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[15][1]                      ; Lost fanout                                 ;
+; regs:gpr|gpr[12][2]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[13][2]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[14][2]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[15][2]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[12][3]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[13][3]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[14][3]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[15][3]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[12][4]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[13][4]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[14][4]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[15][4]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[12][5]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[13][5]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[14][5]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[15][5]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[12][6]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[13][6]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[14][6]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[15][6]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[12][7]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[13][7]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[14][7]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[15][7]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[11][0]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[11][1]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[11][2]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[11][3]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[11][4]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[11][5]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[11][6]                      ; Stuck at GND due to stuck port clock_enable ;
+; regs:gpr|gpr[11][7]                      ; Stuck at GND due to stuck port clock_enable ;
+; Total Number of Removed Registers = 199  ;                                             ;
++------------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 122   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 24    ;
+; Number of registers using Asynchronous Clear ; 34    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 91    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |cpu|regs:gpr|gpr[0][0]             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |cpu|regs:gpr|gpr[1][7]             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |cpu|regs:gpr|gpr[4][7]             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |cpu|regs:gpr|gpr[5][4]             ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |cpu|sequencer:abc|present_state[2] ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |cpu|pc:progCounter|PCout[2]        ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |cpu|alu:iu|Mux7                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |cpu|sequencer:abc|flag1            ;
+; 17:1               ; 8 bits    ; 88 LEs        ; 88 LEs               ; 0 LEs                  ; No         ; |cpu|regs:gpr|Rdata1[0]             ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |cpu|Alub[1]                        ;
+; 18:1               ; 6 bits    ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |cpu|Alub[7]                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |cpu ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; n              ; 8     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: counter:c ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; n              ; 24    ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pc:progCounter ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; Psize          ; 6     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: prog:progMemory ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; Psize          ; 6     ; Signed Integer                      ;
+; Isize          ; 24    ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: regs:gpr ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; n              ; 8     ; Signed Integer               ;
++----------------+-------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sequencer:abc ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; n              ; 8     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:iu ;
++----------------+-------+----------------------------+
+; Parameter Name ; Value ; Type                       ;
++----------------+-------+----------------------------+
+; n              ; 8     ; Signed Integer             ;
++----------------+-------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "prog:progMemory"                                                                     ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; I[24] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 122                         ;
+;     CLR               ; 31                          ;
+;     ENA               ; 56                          ;
+;     ENA CLR           ; 3                           ;
+;     ENA SLD           ; 32                          ;
+; arriav_lcell_comb     ; 199                         ;
+;     arith             ; 31                          ;
+;         1 data inputs ; 22                          ;
+;         2 data inputs ; 1                           ;
+;         5 data inputs ; 8                           ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 167                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 22                          ;
+;         4 data inputs ; 20                          ;
+;         5 data inputs ; 50                          ;
+;         6 data inputs ; 68                          ;
+; arriav_mac            ; 1                           ;
+; boundary_port         ; 19                          ;
+;                       ;                             ;
+; Max LUT depth         ; 6.50                        ;
+; Average LUT depth     ; 3.90                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+    Info: Processing started: Thu Mar 05 15:17:37 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file sequencer.sv
+    Info (12023): Found entity 1: sequencer File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file regs.sv
+    Info (12023): Found entity 1: regs File: C:/Users/luojiawei/Desktop/Quartus_Processors/regs.sv Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file prog.sv
+    Info (12023): Found entity 1: prog File: C:/Users/luojiawei/Desktop/Quartus_Processors/prog.sv Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file pc.sv
+    Info (12023): Found entity 1: pc File: C:/Users/luojiawei/Desktop/Quartus_Processors/pc.sv Line: 8
+Info (12021): Found 0 design units, including 0 entities, in source file opcodes.sv
+Warning (10274): Verilog HDL macro warning at alucodes.sv(8): overriding existing definition for macro "MUL", which was defined in "opcodes.sv", line 12 File: C:/Users/luojiawei/Desktop/Quartus_Processors/alucodes.sv Line: 8
+Warning (10274): Verilog HDL macro warning at opcodes.sv(12): overriding existing definition for macro "MUL", which was defined in "opcodes.sv", line 12 File: C:/Users/luojiawei/Desktop/Quartus_Processors/opcodes.sv Line: 12
+Info (12021): Found 1 design units, including 1 entities, in source file decoder.sv
+    Info (12023): Found entity 1: decoder File: C:/Users/luojiawei/Desktop/Quartus_Processors/decoder.sv Line: 12
+Warning (10274): Verilog HDL macro warning at alucodes.sv(8): overriding existing definition for macro "MUL", which was defined in "opcodes.sv", line 12 File: C:/Users/luojiawei/Desktop/Quartus_Processors/alucodes.sv Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file cpu.sv
+    Info (12023): Found entity 1: cpu File: C:/Users/luojiawei/Desktop/Quartus_Processors/cpu.sv Line: 10
+Info (12021): Found 0 design units, including 0 entities, in source file alucodes.sv
+Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
+    Info (12023): Found entity 1: alu File: C:/Users/luojiawei/Desktop/Quartus_Processors/alu.sv Line: 10
+Info (12021): Found 1 design units, including 1 entities, in source file counter.sv
+    Info (12023): Found entity 1: counter File: C:/Users/luojiawei/Desktop/Quartus_Processors/counter.sv Line: 2
+Warning (10222): Verilog HDL Parameter Declaration warning at cpu.sv(28): Parameter Declaration in module "cpu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/luojiawei/Desktop/Quartus_Processors/cpu.sv Line: 28
+Warning (10222): Verilog HDL Parameter Declaration warning at cpu.sv(32): Parameter Declaration in module "cpu" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/luojiawei/Desktop/Quartus_Processors/cpu.sv Line: 32
+Info (12127): Elaborating entity "cpu" for the top level hierarchy
+Info (12128): Elaborating entity "counter" for hierarchy "counter:c" File: C:/Users/luojiawei/Desktop/Quartus_Processors/cpu.sv Line: 40
+Warning (10230): Verilog HDL assignment warning at counter.sv(10): truncated value with size 32 to match size of target (24) File: C:/Users/luojiawei/Desktop/Quartus_Processors/counter.sv Line: 10
+Info (12128): Elaborating entity "pc" for hierarchy "pc:progCounter" File: C:/Users/luojiawei/Desktop/Quartus_Processors/cpu.sv Line: 47
+Info (12128): Elaborating entity "prog" for hierarchy "prog:progMemory" File: C:/Users/luojiawei/Desktop/Quartus_Processors/cpu.sv Line: 50
+Warning (10850): Verilog HDL warning at prog.sv(16): number of words (25) in memory file does not match the number of elements in the address range [0:63] File: C:/Users/luojiawei/Desktop/Quartus_Processors/prog.sv Line: 16
+Warning (10030): Net "progMem.data_a" at prog.sv(12) has no driver or initial value, using a default initial value '0' File: C:/Users/luojiawei/Desktop/Quartus_Processors/prog.sv Line: 12
+Warning (10030): Net "progMem.waddr_a" at prog.sv(12) has no driver or initial value, using a default initial value '0' File: C:/Users/luojiawei/Desktop/Quartus_Processors/prog.sv Line: 12
+Warning (10030): Net "progMem.we_a" at prog.sv(12) has no driver or initial value, using a default initial value '0' File: C:/Users/luojiawei/Desktop/Quartus_Processors/prog.sv Line: 12
+Info (12128): Elaborating entity "decoder" for hierarchy "decoder:D" File: C:/Users/luojiawei/Desktop/Quartus_Processors/cpu.sv Line: 57
+Info (12128): Elaborating entity "regs" for hierarchy "regs:gpr" File: C:/Users/luojiawei/Desktop/Quartus_Processors/cpu.sv Line: 64
+Info (12128): Elaborating entity "sequencer" for hierarchy "sequencer:abc" File: C:/Users/luojiawei/Desktop/Quartus_Processors/cpu.sv Line: 66
+Info (10041): Inferred latch for "PCout_out[0][0]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[0][1]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[0][2]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[0][3]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[0][4]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[0][5]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[1][0]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[1][1]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[1][2]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[1][3]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[1][4]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[1][5]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[2][0]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[2][1]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[2][2]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[2][3]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[2][4]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[2][5]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[3][0]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[3][1]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[3][2]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[3][3]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[3][4]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[3][5]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[4][0]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[4][1]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[4][2]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[4][3]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[4][4]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (10041): Inferred latch for "PCout_out[4][5]" at sequencer.sv(25) File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Info (12128): Elaborating entity "alu" for hierarchy "alu:iu" File: C:/Users/luojiawei/Desktop/Quartus_Processors/cpu.sv Line: 70
+Warning (10270): Verilog HDL Case Statement warning at alu.sv(38): incomplete case statement has no default case item File: C:/Users/luojiawei/Desktop/Quartus_Processors/alu.sv Line: 38
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "prog:progMemory|progMem" is uninferred due to inappropriate RAM size File: C:/Users/luojiawei/Desktop/Quartus_Processors/prog.sv Line: 12
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/luojiawei/Desktop/Quartus_Processors/db/CPU.ram0_prog_c2549942.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "sequencer:abc|PCout_out[3][2]" merged with LATCH primitive "sequencer:abc|PCout_out[3][0]" File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+    Info (13026): Duplicate LATCH primitive "sequencer:abc|PCout_out[3][1]" merged with LATCH primitive "sequencer:abc|PCout_out[3][0]" File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+    Info (13026): Duplicate LATCH primitive "sequencer:abc|PCout_out[4][3]" merged with LATCH primitive "sequencer:abc|PCout_out[4][4]" File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+    Info (13026): Duplicate LATCH primitive "sequencer:abc|PCout_out[3][3]" merged with LATCH primitive "sequencer:abc|PCout_out[4][4]" File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+Warning (13012): Latch sequencer:abc|PCout_out[3][0] has unsafe behavior File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sequencer:abc|present_state[2] File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 15
+Warning (13012): Latch sequencer:abc|PCout_out[2][0] has unsafe behavior File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sequencer:abc|present_state[2] File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 15
+Warning (13012): Latch sequencer:abc|PCout_out[1][0] has unsafe behavior File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sequencer:abc|present_state[2] File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 15
+Warning (13012): Latch sequencer:abc|PCout_out[0][0] has unsafe behavior File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sequencer:abc|present_state[2] File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 15
+Warning (13012): Latch sequencer:abc|PCout_out[4][4] has unsafe behavior File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 25
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sequencer:abc|present_state[2] File: C:/Users/luojiawei/Desktop/Quartus_Processors/sequencer.sv Line: 15
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 138 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 308 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 288 logic cells
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 23 warnings
+    Info: Peak virtual memory: 927 megabytes
+    Info: Processing ended: Thu Mar 05 15:17:56 2020
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:21
+
+

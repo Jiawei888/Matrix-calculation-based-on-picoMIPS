@@ -1,0 +1,197 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'counter:c|count[23]'
+Slack : -9.022
+TNS   : -926.355
+
+Type  : Slow 1100mV 85C Model Setup 'fastclk'
+Slack : -3.853
+TNS   : -31.367
+
+Type  : Slow 1100mV 85C Model Setup 'sequencer:abc|present_state[1]'
+Slack : -2.672
+TNS   : -11.603
+
+Type  : Slow 1100mV 85C Model Setup 'sequencer:abc|present_state[0]'
+Slack : -2.519
+TNS   : -9.080
+
+Type  : Slow 1100mV 85C Model Hold 'sequencer:abc|present_state[0]'
+Slack : 0.007
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'sequencer:abc|present_state[1]'
+Slack : 0.102
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'fastclk'
+Slack : 0.379
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'counter:c|count[23]'
+Slack : 0.455
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'fastclk'
+Slack : -0.665
+TNS   : -16.194
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'counter:c|count[23]'
+Slack : -0.394
+TNS   : -68.282
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'sequencer:abc|present_state[1]'
+Slack : 0.346
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'sequencer:abc|present_state[0]'
+Slack : 0.413
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'counter:c|count[23]'
+Slack : -8.884
+TNS   : -913.833
+
+Type  : Slow 1100mV 0C Model Setup 'fastclk'
+Slack : -3.782
+TNS   : -32.992
+
+Type  : Slow 1100mV 0C Model Setup 'sequencer:abc|present_state[1]'
+Slack : -2.484
+TNS   : -11.036
+
+Type  : Slow 1100mV 0C Model Setup 'sequencer:abc|present_state[0]'
+Slack : -2.427
+TNS   : -8.669
+
+Type  : Slow 1100mV 0C Model Hold 'sequencer:abc|present_state[0]'
+Slack : 0.010
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'sequencer:abc|present_state[1]'
+Slack : 0.055
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'fastclk'
+Slack : 0.378
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'counter:c|count[23]'
+Slack : 0.447
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'fastclk'
+Slack : -0.667
+TNS   : -14.957
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'counter:c|count[23]'
+Slack : -0.394
+TNS   : -66.070
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'sequencer:abc|present_state[1]'
+Slack : 0.302
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'sequencer:abc|present_state[0]'
+Slack : 0.417
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'counter:c|count[23]'
+Slack : -5.106
+TNS   : -516.854
+
+Type  : Fast 1100mV 85C Model Setup 'fastclk'
+Slack : -2.975
+TNS   : -10.158
+
+Type  : Fast 1100mV 85C Model Setup 'sequencer:abc|present_state[1]'
+Slack : -1.439
+TNS   : -5.283
+
+Type  : Fast 1100mV 85C Model Setup 'sequencer:abc|present_state[0]'
+Slack : -1.338
+TNS   : -4.227
+
+Type  : Fast 1100mV 85C Model Hold 'sequencer:abc|present_state[0]'
+Slack : -0.085
+TNS   : -0.085
+
+Type  : Fast 1100mV 85C Model Hold 'sequencer:abc|present_state[1]'
+Slack : 0.013
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'counter:c|count[23]'
+Slack : 0.046
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'fastclk'
+Slack : 0.187
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'fastclk'
+Slack : -0.722
+TNS   : -11.626
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'counter:c|count[23]'
+Slack : -0.017
+TNS   : -0.273
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'sequencer:abc|present_state[0]'
+Slack : 0.399
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'sequencer:abc|present_state[1]'
+Slack : 0.436
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'counter:c|count[23]'
+Slack : -4.619
+TNS   : -468.548
+
+Type  : Fast 1100mV 0C Model Setup 'fastclk'
+Slack : -2.518
+TNS   : -9.128
+
+Type  : Fast 1100mV 0C Model Setup 'sequencer:abc|present_state[1]'
+Slack : -1.216
+TNS   : -4.458
+
+Type  : Fast 1100mV 0C Model Setup 'sequencer:abc|present_state[0]'
+Slack : -1.135
+TNS   : -3.572
+
+Type  : Fast 1100mV 0C Model Hold 'sequencer:abc|present_state[0]'
+Slack : -0.099
+TNS   : -0.099
+
+Type  : Fast 1100mV 0C Model Hold 'sequencer:abc|present_state[1]'
+Slack : -0.033
+TNS   : -0.036
+
+Type  : Fast 1100mV 0C Model Hold 'counter:c|count[23]'
+Slack : 0.011
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'fastclk'
+Slack : 0.177
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'fastclk'
+Slack : -0.738
+TNS   : -13.735
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'counter:c|count[23]'
+Slack : 0.023
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'sequencer:abc|present_state[0]'
+Slack : 0.407
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'sequencer:abc|present_state[1]'
+Slack : 0.452
+TNS   : 0.000
+
+------------------------------------------------------------

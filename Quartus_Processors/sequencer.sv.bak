@@ -1,0 +1,54 @@
+//`include "alucodes.sv"
+module sequencer #( parameter n = 8) // data bus width
+( input logic clk,  
+  input logic [9:0] SW, // Switches SW0..SW9
+  
+  output logic [4:0] writein, output logic [5:0] PCout_out [4:0]); // LED
+ 
+logic[2:0] flags1,flags2;
+
+always_ff @(posedge SW[8], negedge SW[9])
+//always_comb
+begin 
+	if(~SW[9])
+		begin flags1<=1; PCout_out[0]<=6; PCout_out[1]<=8; PCout_out[3]<=22;end
+	else
+	begin
+	case(flags1)
+	  1: begin writein<=5'b00100; flags1 <= flags1+1; PCout_out[0]<=7; end
+	  2: begin writein<=5'b00101; flags1 <= flags1+1; PCout_out[1]<=9;end
+	  3: begin flags1 <= 1; PCout_out[3]<=23;end
+	  default: flags1<=1;
+	endcase
+	end
+end	
+
+always_ff @(negedge SW[8],negedge SW[9])
+begin
+	if(~SW[9])
+		begin flags2<=1; PCout_out[2]<=20;PCout_out[4]<=1'd0; end
+	else 
+	begin
+	case(flags2)
+	  //1: begin flags2 <= flags2+1; $display("20");end
+	  1: begin flags2 <= flags2+1; //$display("21");
+		 end
+	  2: begin flags2 <= flags2+1; PCout_out[2]<=21;//$display("21+");
+		 end
+	  3: begin flags2 <= 1; PCout_out[0]<=6; PCout_out[1]<=8; 
+		   PCout_out[3]<=22;PCout_out[2]<=20;PCout_out[4]<=1'd1;
+	     end
+	  default: flags2<=1;
+	endcase
+	end
+
+end
+
+always_ff @ (posedge clk)
+begin
+	if(PCout_out[4]==1)	
+		PCout_out[4]<=0;
+end
+
+endmodule
+

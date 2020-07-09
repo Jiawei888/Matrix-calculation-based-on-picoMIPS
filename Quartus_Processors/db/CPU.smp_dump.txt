@@ -1,0 +1,5 @@
+
+State Machine - |cpu|sequencer:abc|flag1
+Name flag1.001 
+flag1.000 0 
+flag1.001 1 
